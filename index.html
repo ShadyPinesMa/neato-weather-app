@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script
+      src="https://kit.fontawesome.com/705457a77d.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Weather</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="app-wrap">
+        <form id="search-form" class="mb-3">
+          <div class="row">
+            <div class="col-8">
+              <input type="search" id="city-search" placeholder="Search" class="form-control" autocomplete="off" />
+            </div>
+            <div class="col-2">
+              <button type="button" id="search-button" class="btn btn-success"><i class="fas fa-search" id="search"></i> Search</button>
+            </div>
+            <div class="col-2">
+              <button type="button" id="current-location-button" class="btn btn-success"><i class="fas fa-map-marker-alt" id="location"></i></button>
+            </div>
+          </div>
+        </form>
+        <div class="row">
+          <div class="col-12">
+            <h1 class="city" id="city">
+              <strong>
+              City
+              </strong>
+            </h1>
+            <ul class="day-weather">
+              <li class="day-time" id="current-day-time">
+                Day, 00:00
+              </li>
+              <li class="weather-type" id="current-status">
+                Sunny
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <span class="current-temp">
+              <strong class="temp-number">
+                68
+              </strong>
+              <small class="units">
+                <a href="#" id="fahrenheit">°F</a> | <a href="#" id="celcius">°C</a>
+              </small>
+            </span>  
+          </div>
+          <div class="col-4">
+            <img class="weather-image" src="https://img.icons8.com/color/96/000000/sun.png"/>
+          </div>
+          <div class="col-4">
+            <ul class="stats">
+              <li>
+                  Precipitation: 0%
+              </li>
+              <li>
+                  Humidity: 68%
+              </li>
+              <li>
+                  Wind: 5 mph
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div> 
+      <small>
+        <a href="https://https://github.com/ShadyPinesMa/super-duper-weather-app">Open-source code</a> by Carla Cipolloni
+      </small>     
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html> 
