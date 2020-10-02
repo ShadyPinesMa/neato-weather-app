@@ -1,5 +1,5 @@
 body {
-  font-family: 'Zilla Slab', serif;
+  font-family: 'Libre Franklin', sans-serif;
   background: #e9f4ec;
   color: green;
 }
@@ -42,22 +42,21 @@ small {
 }
 
 .current-temp {
-  font-size: 18px;
   margin: 0 auto;
   display: block;
   text-align: center;
-  line-height: 1;
 }
 
-.current-temp strong {
+.temp-number {
   font-size: 54px;
   line-height: 1;
   font-weight: 400;
   margin: 0 auto;
   text-align: center;
+  padding-top: 10px;
 }
 
-.current-temp .units {
+.units {
   font-size: 18px;
   font-weight: 400;
   display: inline-block;
