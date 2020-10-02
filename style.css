@@ -14,8 +14,6 @@ h1 {
 
 li {
   list-style: none;
-  font-size: 20px;
-  line-height: 24px;
   margin: 0;
   padding: 0;
   text-align: center;
@@ -47,6 +45,17 @@ small {
   text-align: center;
 }
 
+.day-weather {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.stats {
+  font-size: 18px;
+}
+
 .temp-number {
   font-size: 54px;
   line-height: 1;
@@ -61,13 +70,7 @@ small {
   font-weight: 400;
   display: inline-block;
   position: relative;
-  top: -22px;
-}
-
-.day-weather {
-  text-align: center;
-  margin-top: 0px;
-  margin-bottom: 10px;
+  top: -26px;
 }
 
 .weather-image {
