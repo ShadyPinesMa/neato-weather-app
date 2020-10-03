@@ -28,12 +28,15 @@ function showTemperature(response) {
   let humidity = document.querySelector("#humidity");
   let windSpeed = document.querySelector("#wind");
   let date = document.querySelector("#current-day-time")
+  let icon = document.querySelector("#icon"); 
+
   temperatureNumber.innerHTML = Math.round(response.data.main.temp);
   cityName.innerHTML = response.data.name;
   weatherDescription.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = response.data.main.humidity;
   windSpeed.innerHTML = Math.round(response.data.wind.speed);
   date.innerHTML = currentDate(response.data.dt * 1000);
+
 }
 
 let apiKey = "5a533b6a6d16b85bbee4c6b85f37d1be";
