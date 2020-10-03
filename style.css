@@ -19,6 +19,10 @@ li {
   text-align: center;
 }
 
+li::first-letter {
+  text-transform: capitalize;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -50,7 +54,6 @@ small {
   margin-top: 0px;
   margin-bottom: 10px;
   font-size: 18px;
-  text-transform: capitalize;
 }
 
 .stats {
@@ -58,7 +61,7 @@ small {
 }
 
 .temp-number {
-  font-size: 54px;
+  font-size: 56px;
   line-height: 1;
   font-weight: 400;
   margin: 0 auto;
