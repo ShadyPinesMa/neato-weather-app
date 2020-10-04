@@ -36,10 +36,13 @@ function showTemperature(response) {
   humidity.innerHTML = response.data.main.humidity;
   windSpeed.innerHTML = Math.round(response.data.wind.speed);
   date.innerHTML = currentDate(response.data.dt * 1000);
+  icon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  icon.setAttribute("alt", response.data.weather[0].description);
 
 }
 
 let apiKey = "5a533b6a6d16b85bbee4c6b85f37d1be";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${apiKey}&units=imperial`;
+let city = "Los Angeles";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
 axios.get(apiUrl).then(showTemperature);
