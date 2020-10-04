@@ -4,6 +4,10 @@ body {
   color: green;
 }
 
+button {
+  font-family: 'Libre Franklin', sans-serif; ;
+}
+
 h1 {
   font-size: 32px;
   font-weight: 400;
