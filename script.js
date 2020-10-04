@@ -1,3 +1,4 @@
+//Day, time, and AM/PM information
 function currentDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -18,7 +19,7 @@ function currentDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes} ${dayNight}`;
 }
-
+//End day, time, and AM/PM info
 
 function showTemperature(response) {
   console.log(response.data);
@@ -38,11 +39,21 @@ function showTemperature(response) {
   date.innerHTML = currentDate(response.data.dt * 1000);
   icon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   icon.setAttribute("alt", response.data.weather[0].description);
-
 }
 
-let apiKey = "5a533b6a6d16b85bbee4c6b85f37d1be";
-let city = "Los Angeles";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+function search(city) {
+  let apiKey = "5a533b6a6d16b85bbee4c6b85f37d1be";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(showTemperature);
+}
 
-axios.get(apiUrl).then(showTemperature);
+function userSubmit(event) {
+  event.preventDefault();
+  let citySearch = document.querySelector("#city-search");
+  search(citySearch.value);
+}
+
+search("New York");
+
+let searchBar = document.querySelector("#search-form");
+searchBar.addEventListener("submit", userSubmit);
