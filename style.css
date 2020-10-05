@@ -109,3 +109,7 @@ small {
   height: 50px;
   width: 50px;
 }
+
+.week-weather .forecast-temp {
+  font-size: 14px;
+}
