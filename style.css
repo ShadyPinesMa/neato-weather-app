@@ -65,6 +65,29 @@ small {
   font-size: 18px;
 }
 
+.row-week-weather {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.row-week-weather h3 {
+  font-size: 16px;
+  margin-bottom: -6px;
+}
+
+.row-week-weather img {
+  display: block;
+  margin: 0 auto;
+  height: 50px;
+  width: 50px;
+}
+
+.row-week-weather .forecast-temp {
+  font-size: 14px;
+}
+
 .stats {
   font-size: 18px;
 }
@@ -92,24 +115,5 @@ small {
   text-align: center;
 }
 
-.week-weather {
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-}
 
-.week-weather h3 {
-  font-size: 16px;
-  margin-bottom: -6px;
-}
 
-.week-weather img {
-  display: block;
-  margin: 0 auto;
-  height: 50px;
-  width: 50px;
-}
-
-.week-weather .forecast-temp {
-  font-size: 14px;
-}
