@@ -1,6 +1,13 @@
 //Day, time, and AM/PM information
 function currentDate(timestamp) {
   let date = new Date(timestamp);
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  let day = days[date.getDay()];
+  return `${day} ${formatHours(timestamp)}`;
+}
+
+function formatHours(timestamp) {
+  let date = new Date(timestamp);
   let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`
@@ -15,14 +22,12 @@ function currentDate(timestamp) {
     hours = hours - 12;
   }
   else {dayNight = `AM`;}
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  let day = days[date.getDay()];
-  return `${day} ${hours}:${minutes} ${dayNight}`;
+
+  return `${hours}:${minutes} ${dayNight}`;
 }
 //End day, time, and AM/PM info
 
 function showTemperature(response) {
-  console.log(response.data);
   let temperatureNumber = document.querySelector("#temperature");
   let cityName = document.querySelector("#city");
   let weatherDescription = document.querySelector("#current-status");
@@ -43,10 +48,34 @@ function showTemperature(response) {
   icon.setAttribute("alt", response.data.weather[0].description);
 }
 
+function showForecast(response) {
+  let dailyForecast = document.querySelector("#forecast");
+  dailyForecast.innerHTML = null;
+  let forecast = null;
+  
+  for (let index = 0; index < 6; index++) {
+    let forecast = response.data.list[index];
+    dailyForecast.innerHTML += `
+      <div class="col-2">
+        <h3>
+          ${formatHours(forecast.dt * 1000)}
+        </h3>
+        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
+        <div class="forecast-temp">
+          ${Math.round(forecast.main.temp_max)}° | ${Math.round(forecast.main.temp_min)}°
+        </div>
+      </div>
+    `;
+  } 
+}
+
 function search(city) {
   let apiKey = "5a533b6a6d16b85bbee4c6b85f37d1be";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showTemperature);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&mode=&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 function userSubmit(event) {
