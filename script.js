@@ -22,6 +22,7 @@ function currentDate(timestamp) {
 //End day, time, and AM/PM info
 
 function showTemperature(response) {
+  console.log(response.data);
   let temperatureNumber = document.querySelector("#temperature");
   let cityName = document.querySelector("#city");
   let weatherDescription = document.querySelector("#current-status");
