@@ -21,58 +21,60 @@
   <body>
     <div class="container">
       <div class="app-wrap">
-        <form id="search-form">
-          <div class="row">
-            <div class="col-8">
-              <input type="search" id="city-search" placeholder="Search" class="form-control" autocomplete="off" />
+        <div class="blanket">
+            <form id="search-form">
+              <div class="row">
+                <div class="col-8">
+                  <input type="search" id="city-search" placeholder="Search" class="form-control" autocomplete="off" />
+                </div>
+                <div class="col-2">
+                  <button type="submit" id="search-button" class="btn btn-success w-100"><i class="fas fa-search" id="search"></i> Search</button>
+                </div>
+                <div class="col-2">
+                  <button type="button" id="current-location-button" class="btn btn-success w-100"><i class="fas fa-map-marker-alt" id="location"></i> Location</button>
+                </div>
+              </div>
+            </form>
+            <div class="row">
+              <div class="col-12">
+                <h1 class="city" id="city">
+                  <strong></strong>
+                </h1>
+                <ul class="day-weather">
+                  <li class="day-time">Last updated: <span id="current-day-time"></span></li>
+                  <li class="weather-type" id="current-status"></li>
+                </ul>
+              </div>
             </div>
-            <div class="col-2">
-              <button type="submit" id="search-button" class="btn btn-success w-100"><i class="fas fa-search" id="search"></i> Search</button>
+            <div class="row">
+              <div class="col-4">
+                <span class="current-temp">
+                  <strong class="temp-number" id="temperature"></strong>
+                  <small class="units">
+                    <a href="#" id="fahrenheit" class="active">°F</a> | <a href="#" id="celcius">°C</a>
+                  </small>
+                </span>  
+              </div>
+              <div class="col-4">
+                <img class="weather-image" id="icon" src=""/>
+              </div>
+              <div class="col-4">
+                <ul class="stats">
+                  <li>
+                      Humidity: <span id="humidity"></span>%
+                  </li>
+                  <li>
+                      Wind: <span id="wind"></span> mph
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div class="col-2">
-              <button type="button" id="current-location-button" class="btn btn-success w-100"><i class="fas fa-map-marker-alt" id="location"></i> Location</button>
-            </div>
           </div>
-        </form>
-        <div class="row">
-          <div class="col-12">
-            <h1 class="city" id="city">
-              <strong></strong>
-            </h1>
-            <ul class="day-weather">
-              <li class="day-time">Last updated: <span id="current-day-time"></span></li>
-              <li class="weather-type" id="current-status"></li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            <span class="current-temp">
-              <strong class="temp-number" id="temperature"></strong>
-              <small class="units">
-                <a href="#" id="fahrenheit" class="active">°F</a> | <a href="#" id="celcius">°C</a>
-              </small>
-            </span>  
-          </div>
-          <div class="col-4">
-            <img class="weather-image" id="icon" src=""/>
-          </div>
-          <div class="col-4">
-            <ul class="stats">
-              <li>
-                  Humidity: <span id="humidity"></span>%
-              </li>
-              <li>
-                  Wind: <span id="wind"></span> mph
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="week-weather">
-          <div class="row">
+          <div class="row-week-weather" id="forecast">
+            
             <div class="col-2">
               <h3>
-                Mon
+                00:00
               </h3>
               <img src="https://openweathermap.org/img/wn/01d@2x.png"/>
               <div class="forecast-temp">
@@ -81,7 +83,7 @@
             </div>
             <div class="col-2">
               <h3>
-                Tue
+                00:00
               </h3>
               <img src="https://openweathermap.org/img/wn/01d@2x.png"/>
               <div class="forecast-temp">
@@ -90,7 +92,7 @@
             </div>
             <div class="col-2">
               <h3>
-                Wed
+                00:00
               </h3>
               <img src="https://openweathermap.org/img/wn/01d@2x.png"/>
               <div class="forecast-temp">
@@ -99,7 +101,7 @@
             </div>
             <div class="col-2">
               <h3>
-                Thu
+                00:00
               </h3>
               <img src="https://openweathermap.org/img/wn/01d@2x.png"/>
               <div class="forecast-temp">
@@ -108,7 +110,7 @@
             </div>
             <div class="col-2">
               <h3>
-                Fri
+                00:00
               </h3>
               <img src="https://openweathermap.org/img/wn/01d@2x.png"/>
               <div class="forecast-temp">
@@ -117,16 +119,17 @@
             </div>
             <div class="col-2">
               <h3>
-                Sat
+                00:00
               </h3>
               <img src="https://openweathermap.org/img/wn/01d@2x.png"/>
               <div class="forecast-temp">
                 65° | 60°
               </div>
             </div>
-          </div>
-        </div>  
-      </div> 
+          </div> 
+      </div>   
+      </div>  
+    </div> 
       <small>
         <a href="https://https://github.com/ShadyPinesMa/super-duper-weather-app">Open-source code</a> by Carla Cipolloni
       </small>     
