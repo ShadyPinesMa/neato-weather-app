@@ -72,6 +72,24 @@ function displayFahrenheitTemp(event) {
   temperatureNumber.innerHTML = Math.round(fahrenheitTemperature);
 }
 
+//Stuff to get the location button to work
+function userPosition(position) {
+  let apiKey = "5a533b6a6d16b85bbee4c6b85f37d1be";
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let units = "imperial"
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  axios.get(url).then(showTemperature);
+}
+
+function userGeolocation() {
+  navigator.geolocation.getCurrentPosition(userPosition);
+}
+
+let currentLocation = document.querySelector("#current-location-button");
+currentLocation.addEventListener("click", userGeolocation);
+//End of geolocation
+
 let fahrenheitTemperature = null;
 
 let searchBar = document.querySelector("#search-form");
