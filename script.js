@@ -22,7 +22,6 @@ function currentDate(timestamp) {
 //End day, time, and AM/PM info
 
 function showTemperature(response) {
-  console.log(response.data);
   let temperatureNumber = document.querySelector("#temperature");
   let cityName = document.querySelector("#city");
   let weatherDescription = document.querySelector("#current-status");
@@ -31,7 +30,9 @@ function showTemperature(response) {
   let date = document.querySelector("#current-day-time")
   let icon = document.querySelector("#icon"); 
 
-  temperatureNumber.innerHTML = Math.round(response.data.main.temp);
+  fahrenheitTemperature = response.data.main.temp;
+
+  temperatureNumber.innerHTML = Math.round(fahrenheitTemperature);
   cityName.innerHTML = response.data.name;
   weatherDescription.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = response.data.main.humidity;
@@ -53,7 +54,32 @@ function userSubmit(event) {
   search(citySearch.value);
 }
 
-search("New York");
+function displayCelciusTemp(event) {
+  event.preventDefault();
+  let temperatureNumber = document.querySelector("#temperature");
+  fahrenheit.classList.remove("active");
+  celcius.classList.add("active");
+  let celciusTemperature = (fahrenheitTemperature - 32) * 5 / 9;
+  temperatureNumber.innerHTML = Math.round(celciusTemperature);
+}
+
+function displayFahrenheitTemp(event) {
+  event.preventDefault();
+  let temperatureNumber = document.querySelector("#temperature");
+  celcius.classList.remove("active");
+  fahrenheit.classList.add("active");
+  temperatureNumber.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let fahrenheitTemperature = null;
 
 let searchBar = document.querySelector("#search-form");
 searchBar.addEventListener("submit", userSubmit);
+
+let celcius = document.querySelector("#celcius");
+celcius.addEventListener("click", displayCelciusTemp);
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", displayFahrenheitTemp);
+
+search("New York");
