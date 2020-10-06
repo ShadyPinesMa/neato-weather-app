@@ -109,6 +109,9 @@ function userPosition(position) {
   let units = "imperial"
   let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
   axios.get(url).then(showTemperature);
+
+  let forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  axios.get(forecastUrl).then(showForecast);
 }
 
 function userGeolocation() {
